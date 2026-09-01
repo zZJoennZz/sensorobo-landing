@@ -1,0 +1,279 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18195257137"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'AW-18195257137');
+  </script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- NOINDEX, NOFOLLOW — make this page uncrawlable -->
+  <meta name="robots" content="noindex,nofollow">
+  <meta name="googlebot" content="noindex,nofollow,noarchive">
+  
+  <meta name="description" content="Free Sensori Robotics white paper: How to Evaluate a Research Robot amid the FCC's foreign-made robot ban — ten vendor-neutral questions every lab should answer before buying. Enter your email to download.">
+  <meta name="keywords" content="research robot, Physical AI, VLA, vision language action, LeRobot, FCC ban, humanoid robot ban, covered list, robot evaluation, buying guide, Unitree, China robot ban">
+  <meta name="theme-color" content="#071111">
+  <link rel="canonical" href="https://sensorirobotics.com/whitepaper">
+
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Sensori Robotics">
+  <meta property="og:title" content="Sensori Robotics White Paper — Navigating the FCC Robot Ban">
+  <meta property="og:description" content="Free white paper from Sensori Robotics. Enter your email to download.">
+  <meta property="og:url" content="https://sensorirobotics.com/whitepaper">
+  <meta property="og:image" content="https://sensorirobotics.com/assets/img/social/yuri-desktop-preview.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Sensori Robotics White Paper — Navigating the FCC Robot Ban">
+  <meta name="twitter:description" content="Free white paper from Sensori Robotics. Enter your email to download.">
+  <meta name="twitter:image" content="https://sensorirobotics.com/assets/img/social/yuri-desktop-preview.png">
+
+  <!-- X-Robots-Tag HTTP-equiv for extra protection -->
+  <meta http-equiv="X-Robots-Tag" content="noindex, nofollow, noarchive, nosnippet">
+
+  <link rel="icon" href="https://sensorirobotics.com/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" href="https://sensorirobotics.com/favicon-48x48.png" sizes="48x48">
+  <link rel="icon" type="image/png" href="https://sensorirobotics.com/favicon-96x96.png" sizes="96x96">
+  <link rel="icon" type="image/png" href="https://sensorirobotics.com/favicon-192x192.png" sizes="192x192">
+  <link rel="apple-touch-icon" href="https://sensorirobotics.com/apple-touch-icon.png" sizes="180x180">
+
+  <title>How to Evaluate a Research Robot Amid the FCC Ban — Sensori Robotics White Paper</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Manrope:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://sensorirobotics.com/assets/css/styles.css?v=20260803-labels14">
+
+  <!-- Minimal page-scoped styling for the two-column offer layout. -->
+  <style>
+    .wp-hero{padding-top:130px}
+    .wp-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:start}
+    @media(max-width:860px){.wp-grid{grid-template-columns:1fr;gap:28px}.wp-hero{padding-top:104px}}
+    .wp-meta{display:flex;flex-wrap:wrap;gap:10px;margin:18px 0 6px}
+    .wp-tag{font-size:12.5px;font-weight:700;letter-spacing:.02em;padding:6px 12px;border-radius:999px;background:rgba(11,130,129,.14);color:#0B8281}
+    .wp-tag-urgent{background:rgba(192,57,43,.12);color:#c0392b}
+    .wp-list{margin:18px 0 0;padding:0;list-style:none;display:grid;gap:12px}
+    .wp-list li{position:relative;padding-left:26px;line-height:1.5}
+    .wp-list li:before{content:"";position:absolute;left:0;top:8px;width:12px;height:12px;border-radius:3px;background:linear-gradient(135deg,#0B8281,#99CA3B)}
+    .wp-formcard{padding:26px;border:1px solid var(--border,#E2E2E7);border-radius:22px;background:var(--surface,#F5F5F7);position:sticky;top:110px}
+    .wp-formcard h2{margin:0 0 6px;font-size:22px}
+    .wp-formcard p{margin:0 0 16px;color:var(--muted,#6B6B75);font-size:14.5px;line-height:1.5}
+    .wp-gate-form{display:flex;flex-direction:column;gap:12px}
+    .wp-label{font-size:13px;font-weight:700;color:var(--text,#0B0B0F)}
+    .wp-input{width:100%;box-sizing:border-box;padding:13px 14px;border:1px solid var(--border,#E2E2E7);border-radius:12px;background:#fff;color:var(--text,#0B0B0F);font-size:16px;outline:none}
+    .wp-input:focus{border-color:#0B8281;box-shadow:0 0 0 4px rgba(11,130,129,.16)}
+    .wp-error{min-height:18px;margin:2px 0 0;color:#c0392b;font-size:13px}
+    .wp-success{display:none}
+    .wp-success.is-shown{display:block}
+    .wp-success .btn{margin-top:6px}
+
+    /* urgency banner */
+    .urgency-banner{background:#c0392b;color:#fff;padding:10px 20px;border-radius:12px;margin-bottom:20px;font-weight:600;font-size:14px;display:inline-flex;align-items:center;gap:10px}
+    .urgency-banner .pulse{display:inline-block;width:10px;height:10px;border-radius:50%;background:#fff;animation:pulse-dot 1.2s ease-in-out infinite}
+    @keyframes pulse-dot{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.3;transform:scale(.7)}}
+    .stat-pill{display:inline-flex;align-items:center;gap:6px;background:rgba(11,130,129,.08);padding:4px 14px 4px 10px;border-radius:999px;font-size:13px;font-weight:600;color:#0B8281}
+
+    /* robots.txt hint for additional protection - visible in source only */
+    /* This page should also be disallowed in robots.txt: Disallow: /whitepaper */
+  </style>
+</head>
+<body>
+  <header class="site-header" data-header>
+    <a class="brand brand-official" href="https://sensorirobotics.com/" aria-label="Sensori Robotics home">
+      <img src="https://sensorirobotics.com/assets/img/sensori-logo.png" alt="Sensori Robotics" class="brand-logo-official">
+    </a>
+    <button class="menu-toggle" type="button" aria-label="Open navigation" aria-expanded="false" data-menu-toggle>
+      <span></span><span></span><span></span>
+    </button>
+    <nav class="nav-links" data-nav>
+      <a href="https://sensorirobotics.com/#home">Home</a>
+      <a href="https://sensorirobotics.com/#yuri">Yuri</a>
+      <a href="https://sensorirobotics.com/specs">Specs</a>
+      <a href="https://sensorirobotics.com/#learning">Learning</a>
+      <a href="https://sensorirobotics.com/#contact">Request A Quote</a>
+      <a href="https://www.landscape.sensorirobotics.com/" rel="noopener">Landscape Robotics</a>
+      <a href="https://sensorirobotics.com/about">About Us</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="section wp-hero">
+      <div class="container">
+        <div class="wp-grid">
+
+          <!-- LEFT: the offer copy (public + indexable). -->
+          <div class="reveal">
+            <!-- urgency banner -->
+            <div class="urgency-banner">
+              <span class="pulse"></span>
+              FCC ban in effect July 28, 2026 — new sales of foreign-made humanoid robots blocked
+            </div>
+
+            <p class="section-kicker">White paper</p>
+
+            <h1>How to Evaluate a Research Robot <span style="color:#0B8281">Amid the FCC Ban</span></h1>
+            <p class="wp-subtitle" style="font-size:18px;color:var(--muted,#6B6B75);margin:.4em 0 0">Ten questions every lab should answer before it buys — updated for the new regulatory landscape.</p>
+
+            <div class="wp-meta">
+              <span class="wp-tag">Physical AI</span>
+              <span class="wp-tag">Vendor-neutral checklist</span>
+              <span class="wp-tag wp-tag-urgent">Updated for 2026 ban</span>
+              <span class="wp-tag">PDF · 3 pages</span>
+            </div>
+
+            <p>The market for research robots has exploded alongside Physical AI — the
+              vision-language-action models, like NVIDIA Isaac GR00T and Physical Intelligence's
+              &pi;0.5, that learn manipulation from demonstration data. <strong>But the federal ban on foreign-made
+              humanoid and quadruped robots — effective July 28, 2026 — has fundamentally changed the procurement landscape.</strong>
+              With an estimated <span class="stat-pill">85%</span> of the world's humanoid robots coming from China, buyers at
+              universities, government labs, and corporate R&D departments need a new evaluation framework.</p>
+
+            <p>This vendor-neutral paper distills the ten questions that matter most before you buy — use
+              it as a checklist against any platform you're considering, including ours. It covers compliance,
+              security, performance, and the practical realities of importing and supporting research robots
+              under the new rules.</p>
+
+            <p style="font-weight:700;margin-top:22px">The ten questions inside</p>
+            <ul class="wp-list">
+              <li>Can it physically do what you need to train?</li>
+              <li>Is it LeRobot compatible?</li>
+              <li>Does it come with a computer — and the right software?</li>
+              <li>Is the GPU strong enough to run a policy in inference?</li>
+              <li>Does the vendor provide support — or even training?</li>
+              <li><strong>If it ships from overseas, what does a return really cost?</strong></li>
+              <li>Is the robot mobile?</li>
+              <li>What hardware do you actually need?</li>
+              <li>What are the teleoperation options?</li>
+              <li>Should the robot work around people, or in a cage?</li>
+            </ul>
+
+            <div style="margin-top:24px;padding:16px 20px;background:rgba(11,130,129,.06);border-radius:12px;border-left:4px solid #0B8281">
+              <p style="font-size:14px;margin:0;color:var(--muted,#6B6B75)">
+                <strong style="color:var(--text,#0B0B0F)">Also inside:</strong> A breakdown of the FCC's
+                "Covered List," guidance on seeking waivers, and a framework for evaluating U.S. and
+                allied-nation alternatives.
+              </p>
+            </div>
+          </div>
+
+          <!-- RIGHT: email gate. -->
+          <div class="wp-formcard reveal" aria-label="Download the white paper">
+            <h2>Get the white paper</h2>
+            <p>Enter your email and your download will unlock right away.</p>
+
+            <form class="wp-gate-form" id="wpGate" novalidate>
+              <label class="wp-label" for="wpEmail">Work email</label>
+              <input class="wp-input" id="wpEmail" type="email" name="email" required
+                     placeholder="you@company.com" autocomplete="email" inputmode="email">
+              <button class="btn btn-primary" type="submit">Get the white paper</button>
+              <p class="wp-error" aria-live="polite"></p>
+              <p class="form-note">We'll only use your email to send the paper and occasional Sensori updates. Unsubscribe anytime.</p>
+            </form>
+
+            <div class="wp-success" id="wpSuccess" aria-live="polite">
+              <p style="font-weight:700;color:var(--text,#0B0B0F)">Thanks — your download is ready.</p>
+              <a class="btn btn-primary" id="wpDownload"
+                 href="https://sensorirobotics.com/assets/docs/evaluating-a-research-robot-for-physical-ai.pdf"
+                 download>Download the PDF &rarr;</a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-brand footer-brand-official">
+      <img src="https://sensorirobotics.com/assets/img/sensori-logo.png" alt="Sensori Robotics" class="brand-logo-official">
+    </div>
+    <nav>
+      <a href="https://sensorirobotics.com/#home">Home</a>
+      <a href="https://sensorirobotics.com/#yuri">Yuri</a>
+      <a href="https://sensorirobotics.com/specs">Specs</a>
+      <a href="https://sensorirobotics.com/#learning">Learning</a>
+      <a href="https://sensorirobotics.com/about">About Us</a>
+      <a href="https://sensorirobotics.com/#contact">Contact</a>
+    </nav>
+    <div class="socials" aria-label="Social links">
+      <a href="https://www.linkedin.com/company/sensori-robotics/" aria-label="Sensori Robotics on LinkedIn" rel="noopener">in</a>
+    </div>
+    <p>© Sensori Robotics 2026. All rights reserved.</p>
+  </footer>
+
+  <!-- White-paper email gate (interim client-side gate; swap/augment with Pipedrive for production). -->
+  <script>
+  (function () {
+    var form = document.getElementById('wpGate');
+    if (!form) return;
+    var email = document.getElementById('wpEmail');
+    var err = form.querySelector('.wp-error');
+    var success = document.getElementById('wpSuccess');
+    var download = document.getElementById('wpDownload');
+    var re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var value = (email.value || '').trim();
+      if (!re.test(value)) {
+        err.textContent = 'Please enter a valid email address.';
+        email.setAttribute('aria-invalid', 'true');
+        email.focus();
+        return;
+      }
+      err.textContent = '';
+      email.setAttribute('aria-invalid', 'false');
+
+      // Pipedrive integration: send lead data to Pipedrive via webhook or API
+      // This is where you'd POST to your Pipedrive integration endpoint
+      // Example: 
+      // fetch('https://sensorirobotics.com/api/pipedrive-lead', {
+      //   method: 'POST',
+      //   headers: { 'Content-Type': 'application/json' },
+      //   body: JSON.stringify({ 
+      //     email: value, 
+      //     source: 'whitepaper-landing',
+      //     first_name: '',
+      //     last_name: '',
+      //     organization: ''
+      //   })
+      // }).then(response => {
+      //   // Handle response
+      //   console.log('Lead sent to Pipedrive');
+      // }).catch(error => {
+      //   console.error('Pipedrive error:', error);
+      // });
+
+      // For demonstration, we log the lead and trigger the download
+      console.log('Lead captured for Pipedrive:', value);
+      console.log('Would create deal in Pipedrive and trigger automated asset delivery');
+
+      // Track conversion in Google Analytics
+      if (typeof window.gtag === 'function') {
+        window.gtag('event', 'whitepaper_download', { 
+          whitepaper: 'evaluate-research-robot-physical-ai',
+          email: value 
+        });
+      }
+
+      // Hide form and show success message
+      form.hidden = true;
+      if (success) success.classList.add('is-shown');
+      
+      // Auto-download the PDF
+      if (download) { 
+        try { download.click(); } catch (e2) {} 
+      }
+    });
+  })();
+  </script>
+
+  <script src="https://sensorirobotics.com/assets/js/main.js?v=20260803-labels14" defer></script>
+</body>
+</html>
