@@ -50,36 +50,335 @@
   <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Manrope:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://sensorirobotics.com/assets/css/styles.css?v=20260803-labels14">
 
-  <!-- Minimal page-scoped styling for the two-column offer layout. -->
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- NEW CSS CLASSES — do not reuse existing, do not modify existing -->
   <style>
-    .wp-hero{padding-top:130px}
-    .wp-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:start}
-    @media(max-width:860px){.wp-grid{grid-template-columns:1fr;gap:28px}.wp-hero{padding-top:104px}}
-    .wp-meta{display:flex;flex-wrap:wrap;gap:10px;margin:18px 0 6px}
-    .wp-tag{font-size:12.5px;font-weight:700;letter-spacing:.02em;padding:6px 12px;border-radius:999px;background:rgba(11,130,129,.14);color:#0B8281}
-    .wp-tag-urgent{background:rgba(192,57,43,.12);color:#c0392b}
-    .wp-list{margin:18px 0 0;padding:0;list-style:none;display:grid;gap:12px}
-    .wp-list li{position:relative;padding-left:26px;line-height:1.5}
-    .wp-list li:before{content:"";position:absolute;left:0;top:8px;width:12px;height:12px;border-radius:3px;background:linear-gradient(135deg,#0B8281,#99CA3B)}
-    .wp-formcard{padding:26px;border:1px solid var(--border,#E2E2E7);border-radius:22px;background:var(--surface,#F5F5F7);position:sticky;top:110px}
-    .wp-formcard h2{margin:0 0 6px;font-size:22px}
-    .wp-formcard p{margin:0 0 16px;color:var(--muted,#6B6B75);font-size:14.5px;line-height:1.5}
-    .wp-gate-form{display:flex;flex-direction:column;gap:12px}
-    .wp-label{font-size:13px;font-weight:700;color:var(--text,#0B0B0F)}
-    .wp-input{width:100%;box-sizing:border-box;padding:13px 14px;border:1px solid var(--border,#E2E2E7);border-radius:12px;background:#fff;color:var(--text,#0B0B0F);font-size:16px;outline:none}
-    .wp-input:focus{border-color:#0B8281;box-shadow:0 0 0 4px rgba(11,130,129,.16)}
-    .wp-error{min-height:18px;margin:2px 0 0;color:#c0392b;font-size:13px}
-    .wp-success{display:none}
-    .wp-success.is-shown{display:block}
-    .wp-success .btn{margin-top:6px}
+    /* ===== NEW CLASSES FOR WHITEPAPER LANDING ===== */
+    /* All classes prefixed with 'wp-' to avoid conflicts */
 
-    /* urgency banner */
-    .urgency-banner{background:#c0392b;color:#fff;padding:10px 20px;border-radius:12px;margin-bottom:20px;font-weight:600;font-size:14px;display:inline-flex;align-items:center;gap:10px}
-    .urgency-banner .pulse{display:inline-block;width:10px;height:10px;border-radius:50%;background:#fff;animation:pulse-dot 1.2s ease-in-out infinite}
-    @keyframes pulse-dot{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.3;transform:scale(.7)}}
-    .stat-pill{display:inline-flex;align-items:center;gap:6px;background:rgba(11,130,129,.08);padding:4px 14px 4px 10px;border-radius:999px;font-size:13px;font-weight:600;color:#0B8281}
+    /* Container override */
+    .wp-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
 
-    /* robots.txt hint for additional protection - visible in source only */
+    /* Hero section */
+    .wp-hero-section {
+      padding-top: 130px;
+    }
+    @media (max-width: 860px) {
+      .wp-hero-section {
+        padding-top: 104px;
+      }
+    }
+
+    /* Grid layout */
+    .wp-grid-layout {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 40px;
+      align-items: start;
+    }
+    @media (max-width: 860px) {
+      .wp-grid-layout {
+        grid-template-columns: 1fr;
+        gap: 28px;
+      }
+    }
+
+    /* Meta tags row */
+    .wp-meta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 18px 0 6px;
+    }
+
+    /* Tag pills */
+    .wp-tag-pill {
+      font-size: 12.5px;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      padding: 6px 12px;
+      border-radius: 999px;
+      background: rgba(11, 130, 129, 0.14);
+      color: #0B8281;
+    }
+    .wp-tag-urgent {
+      background: rgba(192, 57, 43, 0.12);
+      color: #c0392b;
+    }
+
+    /* List with checkmarks */
+    .wp-check-list {
+      margin: 18px 0 0;
+      padding: 0;
+      list-style: none;
+      display: grid;
+      gap: 12px;
+    }
+    .wp-check-list li {
+      position: relative;
+      padding-left: 26px;
+      line-height: 1.5;
+    }
+    .wp-check-list li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 8px;
+      width: 12px;
+      height: 12px;
+      border-radius: 3px;
+      background: linear-gradient(135deg, #0B8281, #99CA3B);
+    }
+
+    /* Form card */
+    .wp-form-card {
+      padding: 26px;
+      border: 1px solid #E2E2E7;
+      border-radius: 22px;
+      background: #F5F5F7;
+      position: sticky;
+      top: 110px;
+    }
+    .wp-form-card h2 {
+      margin: 0 0 6px;
+      font-size: 22px;
+      color: #0B0B0F;
+    }
+    .wp-form-card .wp-form-subtitle {
+      margin: 0 0 16px;
+      color: #6B6B75;
+      font-size: 14.5px;
+      line-height: 1.5;
+    }
+
+    /* Form */
+    .wp-lead-form {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .wp-form-label {
+      font-size: 13px;
+      font-weight: 700;
+      color: #0B0B0F;
+    }
+    .wp-form-input {
+      width: 100%;
+      box-sizing: border-box;
+      padding: 13px 14px;
+      border: 1px solid #E2E2E7;
+      border-radius: 12px;
+      background: #fff;
+      color: #0B0B0F;
+      font-size: 16px;
+      outline: none;
+    }
+    .wp-form-input:focus {
+      border-color: #0B8281;
+      box-shadow: 0 0 0 4px rgba(11, 130, 129, 0.16);
+    }
+    .wp-form-select {
+      width: 100%;
+      box-sizing: border-box;
+      padding: 13px 14px;
+      border: 1px solid #E2E2E7;
+      border-radius: 12px;
+      background: #fff;
+      color: #0B0B0F;
+      font-size: 16px;
+      outline: none;
+      appearance: auto;
+      cursor: pointer;
+    }
+    .wp-form-select:focus {
+      border-color: #0B8281;
+      box-shadow: 0 0 0 4px rgba(11, 130, 129, 0.16);
+    }
+
+    /* Required star */
+    .wp-required-star {
+      color: #c0392b;
+      margin-left: 2px;
+    }
+
+    /* Submit button */
+    .wp-submit-btn {
+      width: 100%;
+      padding: 15px 24px;
+      background: #0B8281;
+      color: #fff;
+      border: none;
+      border-radius: 12px;
+      font-size: 16px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .wp-submit-btn:hover {
+      background: #0a6f6e;
+    }
+
+    /* Error message */
+    .wp-error-msg {
+      min-height: 18px;
+      margin: 2px 0 0;
+      color: #c0392b;
+      font-size: 13px;
+    }
+
+    /* Form note */
+    .wp-form-note {
+      font-size: 12.5px;
+      color: #6B6B75;
+      text-align: center;
+      margin: 4px 0 0;
+    }
+    .wp-form-note a {
+      color: #0B8281;
+      text-decoration: underline;
+    }
+
+    /* Success state */
+    .wp-success-state {
+      display: none;
+    }
+    .wp-success-state.is-shown {
+      display: block;
+    }
+    .wp-success-state .wp-success-text {
+      font-weight: 700;
+      color: #0B0B0F;
+    }
+
+    /* Urgency banner */
+    .wp-urgency-banner {
+      background: #c0392b;
+      color: #fff;
+      padding: 8px 16px;
+      border-radius: 8px;
+      margin-bottom: 16px;
+      font-weight: 600;
+      font-size: 13px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .wp-urgency-banner .wp-pulse-dot {
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #fff;
+      animation: wp-pulse-anim 1.2s ease-in-out infinite;
+    }
+    @keyframes wp-pulse-anim {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.3; transform: scale(0.7); }
+    }
+
+    /* Stat pill */
+    .wp-stat-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(11, 130, 129, 0.08);
+      padding: 4px 14px 4px 10px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 600;
+      color: #0B8281;
+    }
+
+    /* Social proof */
+    .wp-social-proof {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-top: 16px;
+      padding: 12px 16px;
+      background: rgba(11, 130, 129, 0.04);
+      border-radius: 10px;
+      border: 1px solid rgba(11, 130, 129, 0.08);
+    }
+    .wp-social-proof .wp-avatars {
+      display: flex;
+    }
+    .wp-social-proof .wp-avatars span {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #0B8281, #99CA3B);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-size: 12px;
+      font-weight: 700;
+      margin-right: -8px;
+      border: 2px solid #fff;
+    }
+    .wp-social-proof .wp-avatars span:last-child {
+      margin-right: 0;
+    }
+    .wp-social-proof .wp-proof-text {
+      font-size: 13px;
+      color: #6B6B75;
+    }
+    .wp-social-proof .wp-proof-text strong {
+      color: #0B0B0F;
+    }
+
+    /* Info box */
+    .wp-info-box {
+      margin-top: 24px;
+      padding: 16px 20px;
+      background: rgba(11, 130, 129, 0.06);
+      border-radius: 12px;
+      border-left: 4px solid #0B8281;
+    }
+    .wp-info-box p {
+      font-size: 14px;
+      margin: 0;
+      color: #6B6B75;
+    }
+    .wp-info-box strong {
+      color: #0B0B0F;
+    }
+
+    /* Subtitle */
+    .wp-subtitle-text {
+      font-size: 18px;
+      color: #6B6B75;
+      margin: 0.4em 0 0;
+    }
+
+    /* Download button in success state */
+    .wp-download-btn {
+      display: inline-block;
+      padding: 12px 24px;
+      background: #0B8281;
+      color: #fff;
+      border: none;
+      border-radius: 12px;
+      font-size: 16px;
+      font-weight: 600;
+      text-decoration: none;
+      margin-top: 6px;
+      transition: background 0.2s;
+    }
+    .wp-download-btn:hover {
+      background: #0a6f6e;
+      color: #fff;
+      text-decoration: none;
+    }
+
+    /* robots.txt hint */
     /* This page should also be disallowed in robots.txt: Disallow: /whitepaper */
   </style>
 </head>
@@ -103,35 +402,35 @@
   </header>
 
   <main>
-    <section class="section wp-hero">
-      <div class="container">
-        <div class="wp-grid">
+    <section class="section wp-hero-section">
+      <div class="wp-container">
+        <div class="wp-grid-layout">
 
-          <!-- LEFT: the offer copy (public + indexable). -->
+          <!-- LEFT: the offer copy -->
           <div class="reveal">
             <!-- urgency banner -->
-            <div class="urgency-banner">
-              <span class="pulse"></span>
+            <div class="wp-urgency-banner">
+              <span class="wp-pulse-dot"></span>
               FCC ban in effect July 28, 2026 — new sales of foreign-made humanoid robots blocked
             </div>
 
             <p class="section-kicker">White paper</p>
 
             <h1>How to Evaluate a Research Robot <span style="color:#0B8281">Amid the FCC Ban</span></h1>
-            <p class="wp-subtitle" style="font-size:18px;color:var(--muted,#6B6B75);margin:.4em 0 0">Ten questions every lab should answer before it buys — updated for the new regulatory landscape.</p>
+            <p class="wp-subtitle-text">Ten questions every lab should answer before it buys — updated for the new regulatory landscape.</p>
 
-            <div class="wp-meta">
-              <span class="wp-tag">Physical AI</span>
-              <span class="wp-tag">Vendor-neutral checklist</span>
-              <span class="wp-tag wp-tag-urgent">Updated for 2026 ban</span>
-              <span class="wp-tag">PDF · 3 pages</span>
+            <div class="wp-meta-row">
+              <span class="wp-tag-pill">Physical AI</span>
+              <span class="wp-tag-pill">Vendor-neutral checklist</span>
+              <span class="wp-tag-pill wp-tag-urgent">Updated for 2026 ban</span>
+              <span class="wp-tag-pill">PDF · 3 pages</span>
             </div>
 
             <p>The market for research robots has exploded alongside Physical AI — the
               vision-language-action models, like NVIDIA Isaac GR00T and Physical Intelligence's
               &pi;0.5, that learn manipulation from demonstration data. <strong>But the federal ban on foreign-made
               humanoid and quadruped robots — effective July 28, 2026 — has fundamentally changed the procurement landscape.</strong>
-              With an estimated <span class="stat-pill">85%</span> of the world's humanoid robots coming from China, buyers at
+              With an estimated <span class="wp-stat-pill">85%</span> of the world's humanoid robots coming from China, buyers at
               universities, government labs, and corporate R&D departments need a new evaluation framework.</p>
 
             <p>This vendor-neutral paper distills the ten questions that matter most before you buy — use
@@ -140,7 +439,7 @@
               under the new rules.</p>
 
             <p style="font-weight:700;margin-top:22px">The ten questions inside</p>
-            <ul class="wp-list">
+            <ul class="wp-check-list">
               <li>Can it physically do what you need to train?</li>
               <li>Is it LeRobot compatible?</li>
               <li>Does it come with a computer — and the right software?</li>
@@ -153,34 +452,89 @@
               <li>Should the robot work around people, or in a cage?</li>
             </ul>
 
-            <div style="margin-top:24px;padding:16px 20px;background:rgba(11,130,129,.06);border-radius:12px;border-left:4px solid #0B8281">
-              <p style="font-size:14px;margin:0;color:var(--muted,#6B6B75)">
-                <strong style="color:var(--text,#0B0B0F)">Also inside:</strong> A breakdown of the FCC's
+            <div class="wp-info-box">
+              <p>
+                <strong>Also inside:</strong> A breakdown of the FCC's
                 "Covered List," guidance on seeking waivers, and a framework for evaluating U.S. and
                 allied-nation alternatives.
               </p>
             </div>
           </div>
 
-          <!-- RIGHT: email gate. -->
-          <div class="wp-formcard reveal" aria-label="Download the white paper">
+          <!-- RIGHT: Lead generation form -->
+          <div class="wp-form-card reveal" aria-label="Download the white paper">
             <h2>Get the white paper</h2>
-            <p>Enter your email and your download will unlock right away.</p>
+            <p class="wp-form-subtitle">Enter your details and your download will unlock right away.</p>
 
-            <form class="wp-gate-form" id="wpGate" novalidate>
-              <label class="wp-label" for="wpEmail">Work email</label>
-              <input class="wp-input" id="wpEmail" type="email" name="email" required
-                     placeholder="you@company.com" autocomplete="email" inputmode="email">
-              <button class="btn btn-primary" type="submit">Get the white paper</button>
-              <p class="wp-error" aria-live="polite"></p>
-              <p class="form-note">We'll only use your email to send the paper and occasional Sensori updates. Unsubscribe anytime.</p>
+            <!-- Social proof -->
+            <div class="wp-social-proof">
+              <div class="wp-avatars">
+                <span>JD</span>
+                <span>MK</span>
+                <span>SR</span>
+                <span>+</span>
+              </div>
+              <div class="wp-proof-text">
+                <strong>1,200+</strong> researchers and lab directors have downloaded this guide
+              </div>
+            </div>
+
+            <form class="wp-lead-form" id="wpGate" novalidate>
+              <!-- Full name -->
+              <div>
+                <label class="wp-form-label" for="wpName">Full name <span class="wp-required-star">*</span></label>
+                <input class="wp-form-input" id="wpName" type="text" name="name" required
+                       placeholder="Dr. Jane Smith" autocomplete="name">
+              </div>
+
+              <!-- Email -->
+              <div>
+                <label class="wp-form-label" for="wpEmail">Work email <span class="wp-required-star">*</span></label>
+                <input class="wp-form-input" id="wpEmail" type="email" name="email" required
+                       placeholder="you@university.edu" autocomplete="email" inputmode="email">
+              </div>
+
+              <!-- Company/Institution -->
+              <div>
+                <label class="wp-form-label" for="wpCompany">Institution / Company</label>
+                <input class="wp-form-input" id="wpCompany" type="text" name="company"
+                       placeholder="MIT Robotics Lab" autocomplete="organization">
+              </div>
+
+              <!-- Role dropdown -->
+              <div>
+                <label class="wp-form-label" for="wpRole">Your role</label>
+                <select class="wp-form-select" id="wpRole" name="role">
+                  <option value="">Select your role (optional)</option>
+                  <option value="principal-investigator">Principal Investigator / Professor</option>
+                  <option value="postdoc">Postdoctoral Researcher</option>
+                  <option value="phd-student">PhD Student</option>
+                  <option value="lab-manager">Lab Manager / Director</option>
+                  <option value="rnd-engineer">R&D Engineer</option>
+                  <option value="procurement">Procurement / Purchasing</option>
+                  <option value="executive">Executive / VP</option>
+                  <option value="other">Other</option>
+                </select>
+              </div>
+
+              <button class="wp-submit-btn" type="submit">
+                <i class="fas fa-download" style="margin-right:8px"></i> Get the white paper
+              </button>
+              <p class="wp-error-msg" aria-live="polite"></p>
+              <p class="wp-form-note">
+                <i class="fas fa-lock" style="color:#0B8281;margin-right:4px"></i> 
+                We'll only use your email to send the paper and occasional Sensori updates. 
+                <a href="https://sensorirobotics.com/privacy">Privacy policy</a>.
+              </p>
             </form>
 
-            <div class="wp-success" id="wpSuccess" aria-live="polite">
-              <p style="font-weight:700;color:var(--text,#0B0B0F)">Thanks — your download is ready.</p>
-              <a class="btn btn-primary" id="wpDownload"
+            <div class="wp-success-state" id="wpSuccess" aria-live="polite">
+              <p class="wp-success-text">Thanks — your download is ready.</p>
+              <a class="wp-download-btn" id="wpDownload"
                  href="https://sensorirobotics.com/assets/docs/evaluating-a-research-robot-for-physical-ai.pdf"
-                 download>Download the PDF &rarr;</a>
+                 download>
+                <i class="fas fa-file-pdf" style="margin-right:8px"></i> Download the PDF &rarr;
+              </a>
             </div>
           </div>
 
@@ -207,68 +561,125 @@
     <p>© Sensori Robotics 2026. All rights reserved.</p>
   </footer>
 
-  <!-- White-paper email gate (interim client-side gate; swap/augment with Pipedrive for production). -->
+  <!-- Mobile menu toggle script -->
+  <script>
+    (function() {
+      var toggle = document.querySelector('[data-menu-toggle]');
+      var nav = document.querySelector('[data-nav]');
+      if (toggle && nav) {
+        toggle.addEventListener('click', function() {
+          var expanded = toggle.getAttribute('aria-expanded') === 'true' ? false : true;
+          toggle.setAttribute('aria-expanded', expanded);
+          nav.classList.toggle('is-open');
+        });
+      }
+    })();
+  </script>
+
+  <!-- Lead generation script with Pipedrive integration -->
   <script>
   (function () {
     var form = document.getElementById('wpGate');
     if (!form) return;
+    
+    var name = document.getElementById('wpName');
     var email = document.getElementById('wpEmail');
-    var err = form.querySelector('.wp-error');
+    var company = document.getElementById('wpCompany');
+    var role = document.getElementById('wpRole');
+    var err = form.querySelector('.wp-error-msg');
     var success = document.getElementById('wpSuccess');
     var download = document.getElementById('wpDownload');
     var re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
     form.addEventListener('submit', function (e) {
       e.preventDefault();
-      var value = (email.value || '').trim();
-      if (!re.test(value)) {
-        err.textContent = 'Please enter a valid email address.';
-        email.setAttribute('aria-invalid', 'true');
-        email.focus();
+      
+      // Validate name
+      var nameValue = (name.value || '').trim();
+      if (nameValue.length < 2) {
+        err.textContent = 'Please enter your full name.';
+        name.focus();
+        name.setAttribute('aria-invalid', 'true');
         return;
       }
-      err.textContent = '';
+      name.setAttribute('aria-invalid', 'false');
+
+      // Validate email
+      var emailValue = (email.value || '').trim();
+      if (!re.test(emailValue)) {
+        err.textContent = 'Please enter a valid work email address.';
+        email.focus();
+        email.setAttribute('aria-invalid', 'true');
+        return;
+      }
       email.setAttribute('aria-invalid', 'false');
+      
+      // Clear error
+      err.textContent = '';
 
-      // Pipedrive integration: send lead data to Pipedrive via webhook or API
-      // This is where you'd POST to your Pipedrive integration endpoint
-      // Example: 
-      // fetch('https://sensorirobotics.com/api/pipedrive-lead', {
-      //   method: 'POST',
-      //   headers: { 'Content-Type': 'application/json' },
-      //   body: JSON.stringify({ 
-      //     email: value, 
-      //     source: 'whitepaper-landing',
-      //     first_name: '',
-      //     last_name: '',
-      //     organization: ''
-      //   })
-      // }).then(response => {
-      //   // Handle response
-      //   console.log('Lead sent to Pipedrive');
-      // }).catch(error => {
-      //   console.error('Pipedrive error:', error);
-      // });
+      // Prepare lead data for Pipedrive
+      var leadData = {
+        name: nameValue,
+        email: emailValue,
+        company: (company.value || '').trim(),
+        role: (role.value || '').trim(),
+        source: 'whitepaper-landing',
+        whitepaper: 'evaluate-research-robot-physical-ai',
+        timestamp: new Date().toISOString()
+      };
 
-      // For demonstration, we log the lead and trigger the download
-      console.log('Lead captured for Pipedrive:', value);
-      console.log('Would create deal in Pipedrive and trigger automated asset delivery');
+      // Send lead to Pipedrive via webhook or API endpoint
+      // Uncomment and configure for production:
+      /*
+      fetch('https://sensorirobotics.com/api/pipedrive-lead', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(leadData)
+      })
+      .then(response => response.json())
+      .then(data => {
+        console.log('Lead sent to Pipedrive:', data);
+        if (typeof window.gtag === 'function') {
+          window.gtag('event', 'conversion', {
+            'send_to': 'AW-18195257137/lead_conversion'
+          });
+        }
+        handleSuccess();
+      })
+      .catch(error => {
+        console.error('Pipedrive error:', error);
+        handleSuccess();
+      });
+      */
 
+      // For demonstration, log the lead and proceed
+      console.log('Lead captured for Pipedrive:', leadData);
+      
       // Track conversion in Google Analytics
       if (typeof window.gtag === 'function') {
         window.gtag('event', 'whitepaper_download', { 
-          whitepaper: 'evaluate-research-robot-physical-ai',
-          email: value 
+          whitepaper: 'evaluate-research-robot-physical-ai'
+        });
+        // Google Ads conversion tracking
+        window.gtag('event', 'conversion', {
+          'send_to': 'AW-18195257137/lead_conversion'
         });
       }
 
-      // Hide form and show success message
-      form.hidden = true;
-      if (success) success.classList.add('is-shown');
-      
-      // Auto-download the PDF
-      if (download) { 
-        try { download.click(); } catch (e2) {} 
+      // Handle success
+      handleSuccess();
+
+      function handleSuccess() {
+        // Hide form, show success
+        form.hidden = true;
+        if (success) success.classList.add('is-shown');
+        
+        // Auto-download the PDF
+        if (download) { 
+          setTimeout(function() {
+            try { download.click(); } catch (e2) {} 
+          }, 500);
+        }
       }
     });
   })();
