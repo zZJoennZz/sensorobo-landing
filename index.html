@@ -145,11 +145,6 @@
       position: sticky;
       top: 110px;
     }
-    .wp-form-card h2 {
-      margin: 0 0 6px;
-      font-size: 22px;
-      color: #0B0B0F;
-    }
     .wp-form-card .wp-form-subtitle {
       margin: 0 0 16px;
       color: #6B6B75;
@@ -157,103 +152,17 @@
       line-height: 1.5;
     }
 
-    /* Form */
-    .wp-lead-form {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-    }
-    .wp-form-label {
-      font-size: 13px;
-      font-weight: 700;
-      color: #0B0B0F;
-    }
-    .wp-form-input {
+    /* Pipedrive webform wrapper */
+    .wp-pipedrive-wrapper {
       width: 100%;
-      box-sizing: border-box;
-      padding: 13px 14px;
-      border: 1px solid #E2E2E7;
-      border-radius: 12px;
-      background: #fff;
-      color: #0B0B0F;
-      font-size: 16px;
-      outline: none;
     }
-    .wp-form-input:focus {
-      border-color: #0B8281;
-      box-shadow: 0 0 0 4px rgba(11, 130, 129, 0.16);
+    .wp-pipedrive-wrapper .pipedriveWebForms {
+      width: 100% !important;
     }
-    .wp-form-select {
-      width: 100%;
-      box-sizing: border-box;
-      padding: 13px 14px;
-      border: 1px solid #E2E2E7;
-      border-radius: 12px;
-      background: #fff;
-      color: #0B0B0F;
-      font-size: 16px;
-      outline: none;
-      appearance: auto;
-      cursor: pointer;
-    }
-    .wp-form-select:focus {
-      border-color: #0B8281;
-      box-shadow: 0 0 0 4px rgba(11, 130, 129, 0.16);
-    }
-
-    /* Required star */
-    .wp-required-star {
-      color: #c0392b;
-      margin-left: 2px;
-    }
-
-    /* Submit button */
-    .wp-submit-btn {
-      width: 100%;
-      padding: 15px 24px;
-      background: #0B8281;
-      color: #fff;
-      border: none;
-      border-radius: 12px;
-      font-size: 16px;
-      font-weight: 700;
-      cursor: pointer;
-      transition: background 0.2s;
-    }
-    .wp-submit-btn:hover {
-      background: #0a6f6e;
-    }
-
-    /* Error message */
-    .wp-error-msg {
-      min-height: 18px;
-      margin: 2px 0 0;
-      color: #c0392b;
-      font-size: 13px;
-    }
-
-    /* Form note */
-    .wp-form-note {
-      font-size: 12.5px;
-      color: #6B6B75;
-      text-align: center;
-      margin: 4px 0 0;
-    }
-    .wp-form-note a {
-      color: #0B8281;
-      text-decoration: underline;
-    }
-
-    /* Success state */
-    .wp-success-state {
-      display: none;
-    }
-    .wp-success-state.is-shown {
-      display: block;
-    }
-    .wp-success-state .wp-success-text {
-      font-weight: 700;
-      color: #0B0B0F;
+    .wp-pipedrive-wrapper iframe {
+      width: 100% !important;
+      border: none !important;
+      min-height: 520px !important;
     }
 
     /* Urgency banner */
@@ -300,7 +209,7 @@
       display: flex;
       align-items: center;
       gap: 12px;
-      margin-top: 16px;
+      margin-bottom: 16px;
       padding: 12px 16px;
       background: rgba(11, 130, 129, 0.04);
       border-radius: 10px;
@@ -356,26 +265,6 @@
       font-size: 18px;
       color: #6B6B75;
       margin: 0.4em 0 0;
-    }
-
-    /* Download button in success state */
-    .wp-download-btn {
-      display: inline-block;
-      padding: 12px 24px;
-      background: #0B8281;
-      color: #fff;
-      border: none;
-      border-radius: 12px;
-      font-size: 16px;
-      font-weight: 600;
-      text-decoration: none;
-      margin-top: 6px;
-      transition: background 0.2s;
-    }
-    .wp-download-btn:hover {
-      background: #0a6f6e;
-      color: #fff;
-      text-decoration: none;
     }
 
     /* robots.txt hint */
@@ -461,11 +350,8 @@
             </div>
           </div>
 
-          <!-- RIGHT: Lead generation form -->
+          <!-- RIGHT: Lead generation form with Pipedrive -->
           <div class="wp-form-card reveal" aria-label="Download the white paper">
-            <h2>Get the white paper</h2>
-            <p class="wp-form-subtitle">Enter your details and your download will unlock right away.</p>
-
             <!-- Social proof -->
             <div class="wp-social-proof">
               <div class="wp-avatars">
@@ -479,62 +365,11 @@
               </div>
             </div>
 
-            <form class="wp-lead-form" id="wpGate" novalidate>
-              <!-- Full name -->
-              <div>
-                <label class="wp-form-label" for="wpName">Full name <span class="wp-required-star">*</span></label>
-                <input class="wp-form-input" id="wpName" type="text" name="name" required
-                       placeholder="Dr. Jane Smith" autocomplete="name">
+            <!-- Pipedrive Webform Embed -->
+            <div class="wp-pipedrive-wrapper">
+              <div class="pipedriveWebForms" data-pd-webforms="https://webforms.pipedrive.com/f/6rAPGHk8zc8yoBup47eN2Td7a4T5QAZR3MHZN4SlBtSkFXLXxDlRfy9lZUlM6xPe4b">
+                <script src="https://webforms.pipedrive.com/f/loader"></script>
               </div>
-
-              <!-- Email -->
-              <div>
-                <label class="wp-form-label" for="wpEmail">Work email <span class="wp-required-star">*</span></label>
-                <input class="wp-form-input" id="wpEmail" type="email" name="email" required
-                       placeholder="you@university.edu" autocomplete="email" inputmode="email">
-              </div>
-
-              <!-- Company/Institution -->
-              <div>
-                <label class="wp-form-label" for="wpCompany">Institution / Company</label>
-                <input class="wp-form-input" id="wpCompany" type="text" name="company"
-                       placeholder="MIT Robotics Lab" autocomplete="organization">
-              </div>
-
-              <!-- Role dropdown -->
-              <div>
-                <label class="wp-form-label" for="wpRole">Your role</label>
-                <select class="wp-form-select" id="wpRole" name="role">
-                  <option value="">Select your role (optional)</option>
-                  <option value="principal-investigator">Principal Investigator / Professor</option>
-                  <option value="postdoc">Postdoctoral Researcher</option>
-                  <option value="phd-student">PhD Student</option>
-                  <option value="lab-manager">Lab Manager / Director</option>
-                  <option value="rnd-engineer">R&D Engineer</option>
-                  <option value="procurement">Procurement / Purchasing</option>
-                  <option value="executive">Executive / VP</option>
-                  <option value="other">Other</option>
-                </select>
-              </div>
-
-              <button class="wp-submit-btn" type="submit">
-                <i class="fas fa-download" style="margin-right:8px"></i> Get the white paper
-              </button>
-              <p class="wp-error-msg" aria-live="polite"></p>
-              <p class="wp-form-note">
-                <i class="fas fa-lock" style="color:#0B8281;margin-right:4px"></i> 
-                We'll only use your email to send the paper and occasional Sensori updates. 
-                <a href="https://sensorirobotics.com/privacy">Privacy policy</a>.
-              </p>
-            </form>
-
-            <div class="wp-success-state" id="wpSuccess" aria-live="polite">
-              <p class="wp-success-text">Thanks — your download is ready.</p>
-              <a class="wp-download-btn" id="wpDownload"
-                 href="https://sensorirobotics.com/assets/docs/evaluating-a-research-robot-for-physical-ai.pdf"
-                 download>
-                <i class="fas fa-file-pdf" style="margin-right:8px"></i> Download the PDF &rarr;
-              </a>
             </div>
           </div>
 
@@ -574,115 +409,6 @@
         });
       }
     })();
-  </script>
-
-  <!-- Lead generation script with Pipedrive integration -->
-  <script>
-  (function () {
-    var form = document.getElementById('wpGate');
-    if (!form) return;
-    
-    var name = document.getElementById('wpName');
-    var email = document.getElementById('wpEmail');
-    var company = document.getElementById('wpCompany');
-    var role = document.getElementById('wpRole');
-    var err = form.querySelector('.wp-error-msg');
-    var success = document.getElementById('wpSuccess');
-    var download = document.getElementById('wpDownload');
-    var re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-    form.addEventListener('submit', function (e) {
-      e.preventDefault();
-      
-      // Validate name
-      var nameValue = (name.value || '').trim();
-      if (nameValue.length < 2) {
-        err.textContent = 'Please enter your full name.';
-        name.focus();
-        name.setAttribute('aria-invalid', 'true');
-        return;
-      }
-      name.setAttribute('aria-invalid', 'false');
-
-      // Validate email
-      var emailValue = (email.value || '').trim();
-      if (!re.test(emailValue)) {
-        err.textContent = 'Please enter a valid work email address.';
-        email.focus();
-        email.setAttribute('aria-invalid', 'true');
-        return;
-      }
-      email.setAttribute('aria-invalid', 'false');
-      
-      // Clear error
-      err.textContent = '';
-
-      // Prepare lead data for Pipedrive
-      var leadData = {
-        name: nameValue,
-        email: emailValue,
-        company: (company.value || '').trim(),
-        role: (role.value || '').trim(),
-        source: 'whitepaper-landing',
-        whitepaper: 'evaluate-research-robot-physical-ai',
-        timestamp: new Date().toISOString()
-      };
-
-      // Send lead to Pipedrive via webhook or API endpoint
-      // Uncomment and configure for production:
-      /*
-      fetch('https://sensorirobotics.com/api/pipedrive-lead', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(leadData)
-      })
-      .then(response => response.json())
-      .then(data => {
-        console.log('Lead sent to Pipedrive:', data);
-        if (typeof window.gtag === 'function') {
-          window.gtag('event', 'conversion', {
-            'send_to': 'AW-18195257137/lead_conversion'
-          });
-        }
-        handleSuccess();
-      })
-      .catch(error => {
-        console.error('Pipedrive error:', error);
-        handleSuccess();
-      });
-      */
-
-      // For demonstration, log the lead and proceed
-      console.log('Lead captured for Pipedrive:', leadData);
-      
-      // Track conversion in Google Analytics
-      if (typeof window.gtag === 'function') {
-        window.gtag('event', 'whitepaper_download', { 
-          whitepaper: 'evaluate-research-robot-physical-ai'
-        });
-        // Google Ads conversion tracking
-        window.gtag('event', 'conversion', {
-          'send_to': 'AW-18195257137/lead_conversion'
-        });
-      }
-
-      // Handle success
-      handleSuccess();
-
-      function handleSuccess() {
-        // Hide form, show success
-        form.hidden = true;
-        if (success) success.classList.add('is-shown');
-        
-        // Auto-download the PDF
-        if (download) { 
-          setTimeout(function() {
-            try { download.click(); } catch (e2) {} 
-          }, 500);
-        }
-      }
-    });
-  })();
   </script>
 
   <script src="https://sensorirobotics.com/assets/js/main.js?v=20260803-labels14" defer></script>
